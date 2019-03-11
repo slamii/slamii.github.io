@@ -1,15 +1,16 @@
 ---
 layout: page
-title: About
+title: About us
 permalink: /about/
 ---
 
-Some information about you!
+### Sami
+Lubi nogi
 
-### More Information
+### Sławek
+Lubi coś innego
 
-A place to include any other types of information that you'd like to include about yourself.
+##### Contact us
 
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+[kozlosam@gmail.com](mailto:kozlosam@gmail.com)
+[sbandq@gmail.com](mailto:sbandq@gmail.com)
