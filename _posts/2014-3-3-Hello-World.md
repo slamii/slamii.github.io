@@ -1,10 +1,25 @@
 ---
 layout: post
-title: You're up and running!
+title: Monads
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+# Why?
+Functional programming languages are founded on the idea of function 
+composition; having 
+{% raw %}
+$$f: A \rightarrow B$$
+{% endraw %}
+and 
+{% raw %}
+$$g: B \rightarrow C$$
+{% endraw %} we can create a composition
+{% raw %}
+$$g \circ f: A \rightarrow C$$.
+{% endraw %}
+Suppose now those functions have some additional, common
+flavour e.g. they may not return a result or print something in addition
+to returning it. 
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+# What?
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+# Where?
