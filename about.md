@@ -12,5 +12,6 @@ Lubi coś innego
 
 ##### Contact us
 
-[kozlosam@gmail.com](mailto:kozlosam@gmail.com)
-[sbandq@gmail.com](mailto:sbandq@gmail.com)
+Sami - [kozlosam@gmail.com](mailto:kozlosam@gmail.com)
+
+Sławek - [sbandq@gmail.com](mailto:sbandq@gmail.com)
