@@ -3,15 +3,15 @@ layout: post
 title: Window functions
 ---
 
-<p class="excerpt">Window functions in MySQL and PostgreSQL.</p>
+<p class="excerpt">Window functions in MySQL and PostgrSQL.</p>
 
 ### What is it?
 
-Window functions are functions applied to sets of rows defined by an OVER() clause. This set of rows is called a *window* and it provides context for the functions to operate in.
+Window functions are functions applied to sets of rows. An SQL query using window function defines for each processed row a set of rows called a *window* and this window provides the context for the functions to operate within. *Windowing* means applying calculations to a set of rows and returning a single value. Without an example this sounds uselessly abstract, so let's be quick to fix this:
 
 <div class="gist-wrapper"><script src="https://gist.github.com/slamii/74853d572c88c37e709d420d2409017d.js"></script></div>
 
-The above query would yield results like:
+The query below could yield results like the following:
 
 ```sql
 id      date        value     rank
@@ -20,7 +20,8 @@ id      date        value     rank
 2       2019-02-20  40        2
 3       2019-03-23  33        3
 ```
-The OVER clause defines a window for the function *with respect to* each row in the result set of the query. In this case, the rank of a given row is computed as one more than the number of rows in the relevant set that have a greater ordering value than the current row, and the relevant set is the set of all the entries (as the OVER clause does not restrict it in any way).
+
+In the example above `RANK()` is the window function operating on windows defined by the `OVER` clause *with respect to* each row in the result set of the query. For each row in this result set an independent window is created and given to the `RANK()` function. The rank of a given row is computed as one more than the number of rows the given window that have a greater ordering value than the current row. In this case each window is the set of all the entries, because the OVER clause does not restrict it in any way.
 
 ### Elements
 
