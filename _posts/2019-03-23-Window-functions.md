@@ -5,9 +5,9 @@ title: Window functions
 
 <p class="excerpt">Window functions in MySQL and PostgrSQL.</p>
 
-### What is it?
+### Outline with an example
 
-Window functions are functions applied to sets of rows. An SQL query using window function defines for each processed row a set of rows called a *window* and this window provides the context for the functions to operate within. *Windowing* means applying calculations to a set of rows and returning a single value. Without an example this sounds uselessly abstract, so let's be quick to fix this:
+Window functions are functions applied to sets of rows. An SQL query using window function defines for each processed row a set of rows called a *window* and this window provides the context for the window functions to operate within. *Windowing* means applying calculations to a set of rows and returning a single value. Let's be quick to jump to an example:
 
 <div class="gist-wrapper"><script src="https://gist.github.com/slamii/74853d572c88c37e709d420d2409017d.js"></script></div>
 
@@ -21,13 +21,15 @@ id      date        value     rank
 3       2019-03-23  33        3
 ```
 
-In the example above `RANK()` is the window function operating on windows defined by the `OVER` clause *with respect to* each row in the result set of the query. For each row in this result set an independent window is created and given to the `RANK()` function. The rank of a given row is computed as one more than the number of rows the given window that have a greater ordering value than the current row. In this case each window is the set of all the entries, because the OVER clause does not restrict it in any way.
+In this example `RANK()` is the window function operating on windows defined by the `OVER` clause. For each row in the result set of the query an independent window is created and given to the `RANK()` function. The rank of a given row is computed as one more than the number of rows in the given window that have a greater ordering value than the current row. In this case each window is the set of all the entries, because the OVER clause does not restrict it in any way.
 
 ### Elements
 
 #### PARTITIONING
 
-It restricts the scope of the current calculation to only those rows from the result set of the query that have the same values in the partitioning columns as in the current row. If this clause is not specified, the scope is not restricted (the entire result set is one partition).
+Specified by the `PARTITION BY` clause, it restricts the scope of the window to only those rows from the result set of the query that have the same values in the partitioning columns as the current row. For example the following query would print each sales value next to its associated customer id together with its percentage share among all sales values for this customer:
+
+<div class="gist-wrapper"><script src="https://gist.github.com/slamii/ec1836acb2658054617f094b27fa5406.js"></script></div>
 
 #### ORDERING
 
