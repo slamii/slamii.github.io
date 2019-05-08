@@ -25,6 +25,8 @@ In this example `RANK()` is the window function operating on windows defined by 
 
 ### Elements
 
+General form of a window aggregate function: `function(<arguments>) OVER([<window partition clause>][<window order clause> [<window frame clause>]])` (p.37).
+
 #### PARTITIONING
 
 Specified by the `PARTITION BY` clause, it restricts the scope of the window to only those rows from the result set of the query that have the same values in the partitioning columns as the current row. For example the following query would print each sales value next to its associated customer id together with its percentage share among all sales values for this customer:
@@ -37,7 +39,10 @@ Ordering is defined by the `ORDER BY` clause which defines the order for the cal
 
 #### FRAMING
 
-Framing is another filter that restricts the rows in the window. It is applicable to aggregate window functions and to three of the offset functions: FIRST_VALUE, LAST_VALUE, and NTH_VALUE. It essentially defines two points in the current row’s partition based on the given ordering, framing the rows that the calculation applies to. The framing specification in the SQL standard includes a ROWS or RANGE option that defines the starting and ending row of the frame, as well as a window frame-exclusion option. Support for these options varies between different implementations. The ROWS option allows to indicate the points in the frame as an offset in terms of the number of rows with respect to the current row. The RANGE option defines the offsets in terms of a difference between the value of the frame point and the current row’s value. The window frame-exclusion option specifies what to do with the current row and its peers in case of ties.
+Framing, like partitioning, is a filter that restricts the rows in the window. It is applicable to aggregate window functions and to three of the offset functions: `FIRST_VALUE()`, `LAST_VALUE()`, and `NTH_VALUE()` and requires an ordering imposed on the window. Based on this ordering, it essentially defines two points in the current row’s partition, framing the rows that the calculation applies to. 
+
+The window frame clause can include three parts and takes the following form `<window frame units> <window frame extent> [<window frame exclusion>]`.
+The framing specification in the SQL standard includes a ROWS or RANGE option that defines the starting and ending row of the frame, as well as a window frame-exclusion option. Support for these options varies between different implementations. The ROWS option allows to indicate the points in the frame as an offset in terms of the number of rows with respect to the current row. The RANGE option defines the offsets in terms of a difference between the value of the frame point and the current row’s value. The window frame-exclusion option specifies what to do with the current row and its peers in case of ties.
 
 ### Why not use a simple grouped query?
 
