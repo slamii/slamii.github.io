@@ -141,6 +141,6 @@ Look how simple it becomes with window functions:
 
 ### Bibliography
 
-1. <a name="wf-bib1">Microsoft SQL Server 2012 High-Performance T-SQL Using Window Functions, Itzik Ben-Gan</a>
+1. Microsoft SQL Server 2012 High-Performance T-SQL Using Window Functions, Itzik Ben-Gan
 2. <a name="wf-bib2" href="https://blog.jooq.org/2018/07/05/postgresql-11s-support-for-sql-standard-groups-and-exclude-window-function-clauses/">PostgreSQL 11's Support for SQL Standard GROUPS and EXCLUDE Window Function Clauses, blog.jooq.org</a>
 3. <a name="wf-bib3" href="https://dev.mysql.com/doc/refman/8.0/en/window-functions-frames.html">Window Function Frame Specification, dev.mysql.com</a>
